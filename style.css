@@ -1,0 +1,202 @@
+/* --- DEĞİŞKENLER --- */
+:root {
+    --primary-gold: #FFD700;
+    --dark-bg: #000000;
+    --text-gray: #bbb;
+    --line-color: #222;
+}
+
+/* --- TEMEL AYARLAR --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    color: #ffffff;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+/* --- HEADER (Destanlar İle Uyumlu) --- */
+.dark-header {
+    background-color: var(--dark-bg);
+    padding: 30px 5%;
+    text-align: center;
+    border-bottom: 1px solid var(--line-color);
+}
+
+.main-logo-effect {
+    width: 130px;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    display: inline-block;
+}
+
+.main-logo-effect:hover { transform: scale(1.25); }
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover { color: var(--primary-gold); }
+
+/* --- HERO SECTION --- */
+.hero-map {
+    width: 100%;
+    height: 60vh;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('ortak/mainpage/0000.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay p {
+    color: #fff;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    max-width: 800px;
+    padding: 0 20px;
+    letter-spacing: 2px;
+}
+
+/* --- EPİK ANLATI BÖLÜMÜ --- */
+.epic-narrative-section {
+    padding: 100px 0;
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.narrative-content {
+    text-align: center;
+}
+
+.narrative-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--primary-gold);
+    margin-bottom: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.narrative-title.small {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    margin-top: 80px;
+    margin-bottom: 30px;
+}
+
+.narrative-text {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    text-align: justify;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.narrative-text.highlight {
+    font-style: italic;
+    color: #fff;
+    font-weight: 400;
+    margin-top: 50px;
+    border-top: 1px solid var(--line-color);
+    padding-top: 40px;
+    text-align: center;
+}
+
+/* --- FOOTER (Destanlar İle Birebir) --- */
+.main-footer {
+    background-color: #000000;
+    padding: 80px 5% 40px;
+    border-top: 1px solid var(--line-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    font-family: 'Cinzel', serif;
+    margin-bottom: 25px;
+    color: #fff;
+    position: relative;
+    font-size: 1.1rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 35px;
+    height: 2px;
+    background-color: var(--primary-gold);
+}
+
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 12px; }
+.footer-section ul li a {
+    color: #666;
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 0.95rem;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-gold);
+    padding-left: 8px;
+}
+
+.contact-email {
+    color: var(--primary-gold);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line-color);
+    color: #333;
+    font-size: 0.85rem;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+    .footer-content {
+        text-align: center;
+    }
+    .footer-section h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

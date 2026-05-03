@@ -1,0 +1,88 @@
+/* --- DEĞİŞKENLER VE TEMA RENKLERİ --- */
+:root {
+    --primary-gold: #FFD700;       /* Destanlar Sayfası */
+    --primary-turquoise: #00ced1;  /* Mitoloji Sayfası */
+    --primary-purple: #9370DB;     /* Oyunlar Sayfası */
+    --primary-red: #D32F2F;        /* Motifler Sayfası */
+    --dark-bg: #000000;
+    --card-bg: #0a0a0a;
+    --text-gray: #bbb;
+}
+
+/* --- TEMEL SIFIRLAMA --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--dark-bg);
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- DİNAMİK RENK YÖNETİMİ --- */
+/* Varsayılan Stil (Altın/Sarı) */
+.page-title-overlay, .card-name, .card-back h3, .contact-email, .footer-section h3::after { color: var(--primary-gold); }
+.myth-card .card-back { border: 1px solid var(--primary-gold); }
+.footer-section ul li a:hover { color: var(--primary-gold); }
+
+/* Mitoloji Sayfası (Turkuaz) */
+.mitoloji-page .page-title-overlay, .mitoloji-page .card-name, .mitoloji-page .card-back h3, .mitoloji-page .contact-email, .mitoloji-page .footer-section h3::after { color: var(--primary-turquoise); }
+.mitoloji-page .myth-card .card-back { border-color: var(--primary-turquoise); }
+.mitoloji-page .footer-section ul li a:hover { color: var(--primary-turquoise); }
+
+/* Oyunlar Sayfası (Mor) */
+.oyunlar-page .page-title-overlay, .oyunlar-page .card-name, .oyunlar-page .card-back h3, .oyunlar-page .contact-email, .oyunlar-page .footer-section h3::after { color: var(--primary-purple); }
+.oyunlar-page .myth-card .card-back { border-color: var(--primary-purple); }
+.oyunlar-page .footer-section ul li a:hover { color: var(--primary-purple); }
+
+/* Motifler Sayfası (Kırmızı) */
+.motif-page .page-title-overlay, .motif-page .card-name, .motif-page .card-back h3, .motif-page .contact-email, .motif-page .footer-section h3::after { color: var(--primary-red); }
+.motif-page .myth-card .card-back { border-color: var(--primary-red); }
+.motif-page .footer-section ul li a:hover { color: var(--primary-red); }
+
+/* --- ÜST BİLGİ (HEADER) --- */
+.dark-header { background-color: var(--dark-bg); padding: 30px 5%; text-align: center; border-bottom: 1px solid #111; }
+.main-logo-effect { width: clamp(100px, 12vw, 130px); transition: transform 0.4s ease; cursor: pointer; display: inline-block; }
+.dark-header .main-logo-effect:hover { transform: scale(1.2); }
+
+/* --- GİRİŞ ALANI (HERO) --- */
+.hero-header-container { position: relative; height: 60vh; min-height: 350px; width: 100%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.header-motif-full { position: absolute; width: 100%; height: 100%; object-fit: cover; filter: brightness(35%); z-index: 1; }
+.hero-text-overlay { position: relative; text-align: center; width: 90%; z-index: 2; }
+.page-title-overlay { font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 6vw, 4rem); letter-spacing: 8px; text-transform: uppercase; }
+
+/* --- IZGARA SİSTEMİ VE KARTLAR --- */
+.myth-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding: 40px 5%; max-width: 1600px; margin: 0 auto; }
+.myth-card { perspective: 1000px; height: 480px; }
+.card-inner { position: relative; width: 100%; height: 100%; transition: transform 0.7s ease; transform-style: preserve-3d; }
+.myth-card:hover .card-inner { transform: rotateY(180deg); }
+.card-front, .card-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: 15px; overflow: hidden; }
+.card-front img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Kart Önü Yazı Tasarımı */
+.card-name { 
+    position: absolute; bottom: 0; width: 100%; padding: 45px 0 20px; 
+    background: linear-gradient(transparent, rgba(0,0,0,0.95) 80%); 
+    font-family: 'Cinzel', serif; text-align: center; 
+    font-size: 1.3rem; font-weight: 800; letter-spacing: 2px;
+    text-shadow: 2px 2px 12px rgba(0,0,0,1);
+}
+
+/* Kart Arkası Yazı Tasarımı */
+.card-back { background: var(--card-bg); transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; padding: 25px; text-align: center; }
+.card-back p { font-size: 0.85rem; color: var(--text-gray); margin-bottom: 15px; }
+.card-back small { color: #555; font-weight: bold; letter-spacing: 1px; font-size: 0.75rem; text-transform: uppercase; }
+
+/* --- ALT BİLGİ (FOOTER) --- */
+.main-footer { background-color: #000000; padding: 80px 5% 40px; border-top: 1px solid #111; margin-top: 80px; width: 100%; }
+.footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 60px; max-width: 1200px; margin: 0 auto; }
+.footer-section h3 { font-family: 'Cinzel', serif; margin-bottom: 25px; color: #fff; position: relative; font-size: 1.2rem; }
+.footer-section h3::after { content: ''; position: absolute; left: 0; bottom: -8px; width: 35px; height: 2px; background: currentColor; }
+.footer-section ul { list-style: none; }
+.footer-section ul li { margin-bottom: 12px; }
+.footer-section ul li a { color: #666; text-decoration: none; transition: 0.3s; font-size: 0.95rem; }
+.footer-section ul li a:hover { padding-left: 8px; }
+.footer-bottom { text-align: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid #111; color: #333; font-size: 0.85rem; }
+
+@media (max-width: 768px) { .footer-content { text-align: center; grid-template-columns: 1fr; } .footer-section h3::after { left: 50%; transform: translateX(-50%); } }
